@@ -2,6 +2,16 @@
 
 Scripts and files used to build Cluster HAT images from Raspbian.
 
+## Docker In Progress
+
+Unfinished. Works on x86 with end-goal to run on GitHub Actions.
+
+```bash
+sudo apt install -y qemu-user-static binfmt-support
+docker buildx build --platform linux/arm64 -t bob:latest .
+docker run --platform linux/arm64 --rm -t bob:latest
+```
+
 ## Building Cluster HAT Images
 
 The build script is located in the build directory.
