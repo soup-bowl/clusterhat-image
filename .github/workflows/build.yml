@@ -21,4 +21,4 @@ jobs:
         run: echo ${{ steps.qemu.outputs.platforms }}
 
       - name: Testing Access to QEMU
-        run: docker run --rm -t arm64v8/ubuntu uname -m
+        run: docker run --platform linux/arm64 --rm -t arm64v8/ubuntu uname -m
