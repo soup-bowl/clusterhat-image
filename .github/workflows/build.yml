@@ -7,16 +7,18 @@ jobs:
   qemu:
     runs-on: ubuntu-latest
     steps:
-      -
-        name: Checkout
+      - name: Checkout
         uses: actions/checkout@v2
-      -
-        name: Set up QEMU
+
+      - name: Set up QEMU
         id: qemu
         uses: docker/setup-qemu-action@v1
         with:
           image: tonistiigi/binfmt:latest
           platforms: arm64
-      -
-        name: Available platforms
+
+      - name: Available platforms
         run: echo ${{ steps.qemu.outputs.platforms }}
+
+      - name: Testing Access to QEMU
+        run: docker run --rm -t arm64v8/ubuntu uname -m
